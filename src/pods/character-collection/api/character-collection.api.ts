@@ -1,16 +1,17 @@
-import { Character } from "./character-collection.api-model";
+import { Character, Info } from "./character-collection.api-model";
 import axios from "axios";
 
 let characterCollection = [];
 
-export const getCharacterCollection = async (): Promise<Character[]> => {
-  const response = await axios.get("http://localhost:3000/api/character");
-  return response.data.results;
-};
-
-export const deleteCharacter = async (id: number): Promise<boolean> => {
-  const response = await axios.delete(
-    `http://localhost:3000/api/character/${id}`,
+export const getCharacterCollection = async (
+  page: number = 1,
+  name: string = "",
+): Promise<{
+  characters: Character[];
+  info: Info;
+}> => {
+  const response = await axios.get(
+    `https://rickandmortyapi.com/api/character/?name=${name}&page=${page}`,
   );
-  return response.data;
+  return { characters: response.data.results, info: response.data.info };
 };

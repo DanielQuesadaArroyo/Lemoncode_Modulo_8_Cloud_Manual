@@ -9,12 +9,7 @@ export const CharacterDetailContainer = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    try {
-      loadCharacterDetail();
-    } catch (error) {
-      console.error("Error al cargar el detalle del personaje: ", error);
-      alert("Error al cargar el detalle del personaje");
-    }
+    loadCharacterDetail();
   }, [loadCharacterDetail]);
 
   return (

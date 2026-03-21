@@ -3,8 +3,11 @@ import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { switchRoutes } from "./routes";
 import {
   CharacterCollectionScene,
-  CharacterScene,
   CharacterDetailScene,
+  LocationCollectionScene,
+  LocationDetailScene,
+  EpisodeCollectionScene,
+  EpisodeDetailScene,
 } from "#scenes";
 
 export const RouterComponent: React.FunctionComponent = () => {
@@ -16,17 +19,28 @@ export const RouterComponent: React.FunctionComponent = () => {
           element={<CharacterCollectionScene />}
         />
         <Route
-          path={switchRoutes.createCharacter}
-          element={<CharacterScene />}
-        />
-        <Route path={switchRoutes.editCharacter} element={<CharacterScene />} />
-        <Route
           path={switchRoutes.characterDetail}
           element={<CharacterDetailScene />}
         />
         <Route
           path={switchRoutes.root}
           element={<Navigate to={switchRoutes.characterCollection} />}
+        />
+        <Route
+          path={switchRoutes.locationCollection}
+          element={<LocationCollectionScene />}
+        />
+        <Route
+          path={switchRoutes.locationDetail}
+          element={<LocationDetailScene />}
+        />
+        <Route
+          path={switchRoutes.episodeCollection}
+          element={<EpisodeCollectionScene />}
+        />
+        <Route
+          path={switchRoutes.episodeDetail}
+          element={<EpisodeDetailScene />}
         />
       </Routes>
     </HashRouter>

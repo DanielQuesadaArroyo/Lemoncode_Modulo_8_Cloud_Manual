@@ -11,6 +11,7 @@ export const useCharacterDetail = (id: string) => {
     if (id) {
       try {
         const result = await getCharacter(id);
+        console.log(result);
         setCharacterDetail(mapFromApiToVm(result));
       } catch (error) {
         console.error(error);

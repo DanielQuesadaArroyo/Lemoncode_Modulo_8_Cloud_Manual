@@ -5,7 +5,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import { Button, Link as MuiLink } from "@mui/material";
+import { Link } from "react-router-dom";
+import { linkRoutes } from "#core/router";
 import { CharacterEntityVm } from "../character-detail.vm";
 
 interface Props {
@@ -43,7 +45,19 @@ export const CharacterDetail: React.FunctionComponent<Props> = (props) => {
           <strong>Género:</strong> {character.gender}
         </Typography>
         <Typography variant="body1" sx={{ mt: 1 }}>
-          <strong>Mejor frase:</strong> {character.bestSentence}
+          <strong>Localización:</strong>{" "}
+          {character.location.url ? (
+            <MuiLink
+              component={Link}
+              to={linkRoutes.locationDetail(
+                character.location.url.split("/").pop() || "",
+              )}
+            >
+              {character.location.name}
+            </MuiLink>
+          ) : (
+            character.location.name
+          )}
         </Typography>
       </CardContent>
 
