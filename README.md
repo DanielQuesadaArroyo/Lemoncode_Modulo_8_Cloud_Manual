@@ -1,54 +1,26 @@
-# Laboratorio REST API
+# Lemoncode_Modulo_8_Cloud_Automatico
 
-## Introducción
+## Básico
 
-En este laboratorio vamos a consumir una API pública para mostrar datos de la serie **Rick & Morty**.
+### Desplegar en Github Pages de forma manual
+- Tenemos un repo en Github.
+- Queremos desplegar una app.
+- Realizar el despliegue manual.
 
-- **API Oficial:** [Rick & Morty API](https://rickandmortyapi.com/)
-- **Punto de entrada:** Boilerplate `laboratory`.
+### Automatizar el proceso de despliegue
+- Queremos que cada vez que se haga un merge a la rama `main` (principal) de este ejercicio, se dispare un flujo de build y despliegue.
+- Usar Github Actions para esto.
+- Para simplificar la entrega de los ejercicios podéis crear un repositorio por cada uno.
 
-## Tareas Principales
-
-- [ ] Cambiar las escenas, rutas y pods a `character-collection` y `character`.
-
----
-
-### Ejercicio 1: Consumir API Real
-
-Obtener una lista de personajes de la API Rest de Rick & Morty utilizando **Axios** o **Fetch**.
-
-- [Documentación REST](https://rickandmortyapi.com/documentation/#rest)
-- Al navegar a la página de un personaje (`character`), se debe mostrar el detalle del mismo (segunda llamada a la API Rest).
-
-### Ejercicio 2: Servidor Local (Mock)
-
-Para simular escrituras, utilizaremos un servidor local (ubicado en la carpeta `server` del proyecto). Este servidor mock tiene precargados los 5 primeros personajes.
-
-**Endpoints soportados:**
-
-- `GET /characters`: Listado de personajes.
-- `GET /characters/:id`: Detalle de un personaje.
-- `PUT /characters/:id`: Actualizar datos del personaje.
-
-**Nuevas funcionalidades:**
-
-- Se ha añadido el campo `bestSentence` para guardar la mejor frase de cada personaje.
-- **Objetivo:** Reemplazar los endpoints para que apunten al servidor local y permitir al usuario editar y guardar el campo `bestSentence`.
+> **Importante:** Github necesita que los workflows estén en la ruta raíz del proyecto en la subcarpeta `.github/workflows`.
 
 ---
 
-## Opcionales
+## Opcional
 
-- [ ] Implementar la misma aplicación del Ejercicio 1 pero utilizando la API de **GraphQL**.
-  - [Documentación GraphQL](https://rickandmortyapi.com/documentation/#graphql)
-  - [GraphQL Playground](https://rickandmortyapi.com/graphql)
+Elegir en el orden que se desee:
 
----
-
-## Challenges
-
-- [ ] Implementar paginación.
-- [ ] Implementar búsqueda de personajes.
-- [ ] Implementar componentes para recuperar y mostrar:
-  - [ ] Lugares (`Locations`).
-  - [ ] Episodios (`Episodes`).
+1. Desplegar la app en Render, usando despliegue manual.
+2. Automatizar el despliegue de la app en Render, usando Docker.
+3. Desplegar la app en Azure, usando Docker y Github Actions.
+4. Desplegar la app en AWS y la imagen de Docker en Docker Hub.
